@@ -881,6 +881,25 @@ describe('browser-window module', function () {
       })
     })
 
+    it('does not crash when a partition is used', function (done) {
+      w.destroy()
+
+      w = new BrowserWindow({
+        show: true,
+        width: 400,
+        height: 400,
+        webPreferences: {
+          partition: 'persist:main'
+        }
+      })
+
+      var extensionPath = path.join(__dirname, 'fixtures', 'devtools-extensions', 'foo')
+      BrowserWindow.addDevToolsExtension(extensionPath)
+
+      w.loadURL('about:blank')
+      w.webContents.openDevTools()
+    })
+
     it('serializes the registered extensions on quit', function () {
       var extensionName = 'foo'
       var extensionPath = path.join(__dirname, 'fixtures', 'devtools-extensions', extensionName)
