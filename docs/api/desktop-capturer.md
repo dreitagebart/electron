@@ -75,5 +75,5 @@ captured screen or individual window, and has following properties:
 * `thumbnail` [NativeImage](native-image.md) - A thumbnail native image.
 
 **Note:** There is no guarantee that the size of `source.thumbnail` is always
-the same as the `thumnbailSize` in `options`. It also depends on the scale of
+the same as the `thumbnailSize` in `options`. It also depends on the scale of
 the screen or window.
